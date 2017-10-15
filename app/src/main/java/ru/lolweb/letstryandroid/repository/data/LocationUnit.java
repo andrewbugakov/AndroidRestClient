@@ -3,12 +3,40 @@ package ru.lolweb.letstryandroid.repository.data;
 import java.sql.Timestamp;
 
 public class LocationUnit {
+    private double longitude;
+    private double latitude;
+    private float speed;
     private Timestamp timestamp;
-    private android.location.Location location;
 
     public LocationUnit(android.location.Location location) {
-        timestamp = new Timestamp(System.currentTimeMillis());
-        this.location = location;
+        timestamp = new Timestamp(location.getTime());
+        longitude = location.getLongitude();
+        latitude = location.getLatitude();
+        speed = location.getSpeed();
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 
     public Timestamp getTimestamp() {
@@ -18,13 +46,5 @@ public class LocationUnit {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
-    }
-
-    public android.location.Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(android.location.Location location) {
-        this.location = location;
     }
 }

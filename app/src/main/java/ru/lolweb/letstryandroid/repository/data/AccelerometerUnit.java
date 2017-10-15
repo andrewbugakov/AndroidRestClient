@@ -3,14 +3,15 @@ package ru.lolweb.letstryandroid.repository.data;
 import android.hardware.SensorEvent;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class AccelerometerUnit {
     private Timestamp timestamp;
-    private SensorEvent sensorEvent;
+    private float[] values;
 
     public AccelerometerUnit(SensorEvent sensorEvent) {
-
-        this.sensorEvent = sensorEvent;
+        this.timestamp = new Timestamp(sensorEvent.timestamp);
+        values = Arrays.copyOf(sensorEvent.values, 3);
     }
 
     public Timestamp getTimestamp() {
@@ -21,11 +22,12 @@ public class AccelerometerUnit {
         this.timestamp = timestamp;
     }
 
-    public SensorEvent getSensorEvent() {
-        return sensorEvent;
+    public float[] getValues() {
+        return values;
     }
 
-    public void setSensorEvent(SensorEvent sensorEvent) {
-        this.sensorEvent = sensorEvent;
+    public void setValues(float[] values) {
+        this.values = values;
     }
+
 }
