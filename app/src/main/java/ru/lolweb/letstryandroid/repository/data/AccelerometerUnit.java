@@ -6,19 +6,19 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 
 public class AccelerometerUnit {
-    private Timestamp timestamp;
+    private long timestamp;
     private float[] values;
 
     public AccelerometerUnit(SensorEvent sensorEvent) {
-        this.timestamp = new Timestamp(sensorEvent.timestamp);
+        this.timestamp = sensorEvent.timestamp;
         values = Arrays.copyOf(sensorEvent.values, 3);
     }
 
-    public Timestamp getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 

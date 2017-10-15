@@ -6,10 +6,10 @@ public class LocationUnit {
     private double longitude;
     private double latitude;
     private float speed;
-    private Timestamp timestamp;
+    private long timestamp;
 
     public LocationUnit(android.location.Location location) {
-        timestamp = new Timestamp(location.getTime());
+        timestamp = location.getTime();
         longitude = location.getLongitude();
         latitude = location.getLatitude();
         speed = location.getSpeed();
@@ -39,12 +39,11 @@ public class LocationUnit {
         this.speed = speed;
     }
 
-    public Timestamp getTimestamp() {
-
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Timestamp timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 }
